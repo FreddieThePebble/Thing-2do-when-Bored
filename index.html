@@ -31,13 +31,13 @@
         }
 
         main {
-            margin-top: 90px; /* Gap between header and list */
+            margin-top: 90px;
             padding: 2rem;
             width: 100%;
             box-sizing: border-box;
             flex: 1;
-            overflow-y: auto; /* Ensure scroll if content overflows */
-            padding-bottom: 80px; /* Space for footer */
+            overflow-y: auto;
+            padding-bottom: 80px;
         }
 
         section {
@@ -68,16 +68,16 @@
         }
 
         ul li a:hover {
-            color: #fff; /* Ensure color remains the same on hover */
+            color: #fff;
         }
 
         ul li a:link,
         ul li a:visited {
-            cursor: pointer; /* Change cursor only for links */
+            cursor: pointer;
         }
 
         ul li:not(:has(a)) {
-            cursor: default; /* Default cursor for non-links */
+            cursor: default;
         }
 
         .light-mode ul li {
@@ -86,19 +86,19 @@
         }
 
         .light-mode ul li a {
-            color: #000; /* Black text in light mode */
+            color: #000;
         }
 
         footer {
             text-align: center;
-            padding: 1rem 2rem; /* Increased padding for a more spacious footer */
+            padding: 1rem 2rem;
             background: #111;
             color: #fff;
             width: 100%;
             position: fixed;
             bottom: 0;
             left: 0;
-            font-size: 1rem; /* Adjusted font size */
+            font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -111,12 +111,12 @@
         }
 
         footer a {
-            color: #e0e0e0; /* Light grey color for the link */
+            color: #e0e0e0;
             text-decoration: none;
         }
 
         footer a:hover {
-            color: #fff; /* Ensure link color changes on hover */
+            color: #fff;
         }
 
         #dark-mode-toggle {
@@ -171,7 +171,6 @@
     <main>
         <section>
             <ul id="todo-list">
-                <!-- List items will be injected here by JavaScript -->
             </ul>
         </section>
     </main>
@@ -182,7 +181,6 @@
     </footer>
     <div id="notification">Link copied to clipboard</div>
     <script>
-        // List of activities with hyperlinks
         const activities = [
             { text: "Touch Grass (Go Outside)", url: "#" },
             { text: "Organize Your Room", url: "#" },
@@ -194,7 +192,6 @@
             { text: "Organize Computer Files", url: "#" }
         ];
 
-        // Function to shuffle array
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -203,10 +200,8 @@
             return array;
         }
 
-        // Get the list element
         const listElement = document.getElementById('todo-list');
 
-        // Shuffle activities and add to list
         function populateList() {
             const shuffledActivities = shuffleArray([...activities]);
             listElement.innerHTML = shuffledActivities.map(item => 
@@ -214,10 +209,8 @@
             ).join('');
         }
 
-        // Initial population of the list
         populateList();
 
-        // Toggle dark mode
         const toggleButton = document.getElementById('dark-mode-toggle');
         toggleButton.addEventListener('click', function() {
             document.body.classList.toggle('light-mode');
@@ -228,14 +221,12 @@
             }
         });
 
-        // Copy link to clipboard and show notification
         const copyLink = document.getElementById('copy-link');
         const notification = document.getElementById('notification');
         const copyUrl = 'https://freddiethepebble.github.io/Thing-2do-when-Bored/';
 
         copyLink.addEventListener('click', function() {
             navigator.clipboard.writeText(copyUrl).then(() => {
-                // Show notification
                 notification.style.display = 'block';
                 setTimeout(() => {
                     notification.style.display = 'none';
